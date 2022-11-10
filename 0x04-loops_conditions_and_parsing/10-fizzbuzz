@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# bash script used for solving the fizz buzz problem
 
 count=1
 

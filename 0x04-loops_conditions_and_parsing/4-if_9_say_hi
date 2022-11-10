@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# bash script to demonstrate the use of if
 
 count=10
 

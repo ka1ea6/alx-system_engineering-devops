@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# bash script for demonstrating the use of until
 
 count=0
 
