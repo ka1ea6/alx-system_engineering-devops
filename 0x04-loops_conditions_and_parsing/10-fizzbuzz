@@ -3,7 +3,7 @@
 
 count=1
 
-while [ $count -lt 100 ]
+while [ $count -lt 101 ]
 do
 	if [ $(( $count % 15)) -eq 0 ]
 	then
