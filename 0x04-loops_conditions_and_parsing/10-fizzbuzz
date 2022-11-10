@@ -5,18 +5,18 @@ count=1
 
 while [ $count -lt 101 ]
 do
-	if [ $(( $count % 15)) -eq 0 ]
+	if [ $(( count % 15 )) -eq 0 ]
 	then
 		echo "FizzBuzz"
-	elif [ $(($count % 5)) -eq 0 ]
+	elif [ $(( count % 5 )) -eq 0 ]
 	then
 		echo "Buzz"
-	elif [ $(($count % 3)) -eq 0 ]
+	elif [ $(( count % 3 )) -eq 0 ]
 	then
 		echo "Fizz"
 	else
 		echo "$count"
 	fi
 
-	count=$[$count+1]
+	(( count++ ))
 done

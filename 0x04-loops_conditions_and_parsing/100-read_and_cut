@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+list=$(cat /etc/passwd)
+
+while [ $list ] 
+do
+	echo "$list"
+done
+#for i in $list
+#do
+#	echo -n "$i" | cut -d ':' -f1
+#	echo -n "$i" | cut -d ':' -f3
+#	echo "$i" | cut -d ':' -f6
+#done
