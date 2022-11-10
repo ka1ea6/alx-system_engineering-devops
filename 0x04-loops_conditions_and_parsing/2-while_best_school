@@ -3,7 +3,7 @@
 
 count=10
 
-while [ $count -gt 0 ]
+while (( $count > 0 ))
 do
 	echo "Best School"
 	count=$[$count-1]
