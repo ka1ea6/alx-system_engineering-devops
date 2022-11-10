@@ -3,6 +3,5 @@
 
 for i in `ls`
 do
-	printArr=(${i//-/ })
-	echo ${printArr[1]}
+	echo $i | cut -d '-' -f2
 done
