@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# this is a file that is used to demonstrate the use of for loops in a bash script
 
 for i in {1..10}; do echo "Best School"; done;
