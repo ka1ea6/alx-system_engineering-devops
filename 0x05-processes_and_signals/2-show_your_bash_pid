@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script to view currently open processes associated with bash
+# shellcheck disable=SC2009
+
+ps=$(ps | grep bash)
+
+echo "$ps"
