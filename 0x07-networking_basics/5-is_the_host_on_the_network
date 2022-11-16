@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Bash script to ping the given IP Address after checking if it was passed
 numArgs=$#
 
 if (( numArgs < 1 ))
