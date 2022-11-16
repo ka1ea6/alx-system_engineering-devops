@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script to show the listening ports on the calling computer.
+
+netstat -l
