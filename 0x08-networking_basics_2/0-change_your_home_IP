@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Bash script to configure the hosts file used to resolve domain names
 
 cp /etc/hosts ~/hosts.new
 echo "8.8.8.8	facebook.com" >> ~/hosts.new
