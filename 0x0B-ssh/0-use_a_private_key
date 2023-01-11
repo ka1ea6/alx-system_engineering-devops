@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that uses ssh to connect to yout server
+
+ssh ubuntu@54.234.63.169
