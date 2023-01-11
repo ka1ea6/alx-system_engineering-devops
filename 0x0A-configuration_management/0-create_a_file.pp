@@ -1,4 +1,6 @@
-file { 'create file in tmp':
+# Create a file 'school' in dir /tmp
+
+file { 'first':
   path    => '/tmp',
   mode    => '0744',
   owner   => 'www-data',
