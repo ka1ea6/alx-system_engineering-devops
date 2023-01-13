@@ -1,6 +1,7 @@
 # Create a file 'school' in dir /tmp
 
-file { 'first':
+file { 'school':
+  ensure  => file,
   path    => '/tmp',
   mode    => '0744',
   owner   => 'www-data',
