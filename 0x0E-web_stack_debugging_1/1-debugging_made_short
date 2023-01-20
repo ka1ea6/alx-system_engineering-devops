@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Short fix for a buggy nginx server
+ln -f -s /etc/sites-available/default /etc/sites-enabled/default
+sudo service nginx start
+kill "$(pgrep 'nginx' | head -1)"
+
