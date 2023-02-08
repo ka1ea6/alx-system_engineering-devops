@@ -12,9 +12,9 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
 
     users = requests.get(
-        "{}/users/{}".format(url)).json()
+        "{}/users".format(url)).json()
     todos = requests.get(
-        "{}/users/{}/todos/".format(url)).json()
+        "{}/todos/".format(url)).json()
 
     usernames = {}
     rows = {}
