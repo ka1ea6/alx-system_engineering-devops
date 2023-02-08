@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Module for interacting with a RESTful API for
-returning an employees TODO list progress
+Module for retrieving employee information and
+exporting to csv
 """
 
 import csv
