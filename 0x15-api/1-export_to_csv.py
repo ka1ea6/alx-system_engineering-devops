@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-'''Module for interacting with a RESTful API for
-returning an employees TODO list progress'''
+'''
+Module for interacting with a RESTful API for
+returning an employees TODO list progress
+'''
 
-import sys
-import requests
 import csv
+import requests
+import sys
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -16,12 +18,12 @@ if __name__ == "__main__":
         todos = requests.get(
             f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos/")
 
-        username = user.json()['username']
+        username = user.json().get('username')
         rows = []
         for todo in todos.json():
             rows.append({'USER_ID': employee_id, 'USERNAME': username,
-                        'TASK_COMPLETED_STATUS': todo['completed'],
-                         'TASK_TITLE': todo['title']})
+                        'TASK_COMPLETED_STATUS': todo.get('completed'),
+                         'TASK_TITLE': todo.get('title')})
 
         with open(f"{employee_id}.csv", 'w') as f:
             writer = csv.DictWriter(f, fieldnames=csv_headers)

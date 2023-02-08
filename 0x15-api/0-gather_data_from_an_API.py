@@ -18,9 +18,9 @@ if __name__ == "__main__":
         for todo in todos.json():
             if todo['completed']:
                 done_tasks += 1
-                done_tasks_str += f"\t {todo['title']}\n"
+                done_tasks_str += f"\t {todo.get('title')}\n"
         print(
-            f"Employee {user.json()['name']} is done with tasks\
+            f"Employee {user.json().get('name')} is done with tasks\
     ({done_tasks}/{ len(todos.json())}):")
         print(done_tasks_str[:-2])
 
