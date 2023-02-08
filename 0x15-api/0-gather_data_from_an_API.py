@@ -19,7 +19,8 @@ if len(sys.argv) > 1:
             done_tasks += 1
             done_tasks_str += f"\t {todo['title']}\n"
     print(
-        f"Employee {user.json()['name']} is done with tasks ({done_tasks}/{ len(todos.json())}):")
+        f"Employee {user.json()['name']} is done with tasks\
+({done_tasks}/{ len(todos.json())}):")
     print(done_tasks_str[:-2])
 
 else:

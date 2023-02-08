@@ -20,7 +20,8 @@ if len(sys.argv) > 1:
     rows = []
     for todo in todos.json():
         rows.append({'USER_ID': employee_id, 'USERNAME': username,
-                    'TASK_COMPLETED_STATUS': todo['completed'], 'TASK_TITLE': todo['title']})
+                    'TASK_COMPLETED_STATUS': todo['completed'],
+                     'TASK_TITLE': todo['title']})
 
     with open(f"{employee_id}.csv", 'w') as f:
         writer = csv.DictWriter(f, fieldnames=csv_headers)
