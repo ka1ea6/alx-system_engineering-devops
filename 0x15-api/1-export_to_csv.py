@@ -28,4 +28,4 @@ if len(sys.argv) > 1:
         writer.writerows(rows)
 
 else:
-    print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
+    print("Usage: ./1-export_to_csv.py <employee_id>")
