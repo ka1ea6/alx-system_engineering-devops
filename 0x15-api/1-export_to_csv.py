@@ -27,8 +27,9 @@ if __name__ == "__main__":
                         'TASK_COMPLETED_STATUS': todo.get('completed'),
                          'TASK_TITLE': todo.get('title')})
 
-        with open("{}.csv".format(employee_id), 'w') as f:
-            writer = csv.DictWriter(f, fieldnames=csv_headers)
+        with open("{}.csv".format(employee_id), 'w', newline="") as f:
+            writer = csv.DictWriter(
+                f, fieldnames=csv_headers, quoting=csv.QUOTE_ALL)
             writer.writerows(rows)
 
     else:
