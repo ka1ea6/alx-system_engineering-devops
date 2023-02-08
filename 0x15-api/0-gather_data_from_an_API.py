@@ -22,7 +22,7 @@ if __name__ == "__main__":
             "Employee {} is done with tasks({}/{}):"
             .format(user.get('name'), done_tasks, len(todos)))
 
-        print(done_tasks_str[:-2])
+        print(done_tasks_str[:-1])
 
     else:
         print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
