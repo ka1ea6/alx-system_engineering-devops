@@ -19,8 +19,8 @@ if __name__ == "__main__":
                 done_tasks += 1
                 done_tasks_str += "\t {}\n".format(todo.get('title'))
         print(
-            "Employee {} is done with tasks\
-    ({}/{}):".format(user.get('name'), done_tasks, len(todos)))
+            "Employee {} is done with tasks({}/{}):"
+            .format(user.get('name'), done_tasks, len(todos)))
 
         print(done_tasks_str[:-2])
 
