@@ -13,19 +13,21 @@ if __name__ == "__main__":
         url = "https://jsonplaceholder.typicode.com"
 
         employee_id = int(sys.argv[1])
+
         user = requests.get(
-            f"{url}/users/{employee_id}").json()
+            "{}/users/{}".format(url, employee_id)).json()
         todos = requests.get(
-            f"{url}/users/{employee_id}/todos/").json()
+            "{}/users/{}/todos/".format(url, employee_id)).json()
 
         username = user.get('username')
-        rows = {f"{employee_id}": []}
+        rows = {"{}".format(employee_id): []}
         for todo in todos:
-            rows[f'{employee_id}'].append({'username': username,
-                                           'completed': todo.get('completed'),
-                                           'task': todo.get('title')})
+            rows['{}'.format(employee_id)].append({'username': username,
+                                                   'completed':
+                                                   todo.get('completed'),
+                                                   'task': todo.get('title')})
 
-        with open(f"{employee_id}.json", 'w') as f:
+        with open("{}.json".format(employee_id), 'w') as f:
             json.dump(rows, f)
     else:
         print("Usage: ./2-export_to_JSON.py <employee_id>")

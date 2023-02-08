@@ -16,9 +16,9 @@ if __name__ == "__main__":
         csv_headers = ['USER_ID', 'USERNAME',
                        'TASK_COMPLETED_STATUS', 'TASK_TITLE']
         user = requests.get(
-            f"{url}/users/{employee_id}").json()
+            "{}/users/{}".format(url, employee_id)).json()
         todos = requests.get(
-            f"{url}/users/{employee_id}/todos/").json()
+            "{}/users/{}/todos/".format(url, employee_id)).json()
 
         username = user.get('username')
         rows = []
@@ -27,7 +27,7 @@ if __name__ == "__main__":
                         'TASK_COMPLETED_STATUS': todo.get('completed'),
                          'TASK_TITLE': todo.get('title')})
 
-        with open(f"{employee_id}.csv", 'w') as f:
+        with open("{}.csv".format(employee_id), 'w') as f:
             writer = csv.DictWriter(f, fieldnames=csv_headers)
             writer.writerows(rows)
 

@@ -12,9 +12,10 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
 
     users = requests.get(
-        f"https://jsonplaceholder.typicode.com/users").json()
+        "{}/users/{}".format(url)).json()
     todos = requests.get(
-        f"https://jsonplaceholder.typicode.com/todos").json()
+        "{}/users/{}/todos/".format(url)).json()
+
     usernames = {}
     rows = {}
     for user in users:
@@ -22,9 +23,10 @@ if __name__ == "__main__":
         rows[user.get('id')] = []
 
     for todo in todos:
-        rows[todo.get("userId")].append({'username': usernames.get(todo.get('userId')),
+        rows[todo.get("userId")].append({'username':
+                                         usernames.get(todo.get('userId')),
                                          'completed': todo.get('completed'),
                                          'task': todo.get('title')})
 
-    with open(f"todo_all_employees.json", 'w') as f:
+    with open("todo_all_employees.json", 'w') as f:
         json.dump(rows, f)
