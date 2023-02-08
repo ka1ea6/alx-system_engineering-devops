@@ -2,24 +2,26 @@
 '''Module for interacting with a RESTful API for
 returning an employees TODO list progress'''
 
-import sys
-import requests
 import json
-if len(sys.argv) > 1:
-    employee_id = int(sys.argv[1])
-    user = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{employee_id}")
-    todos = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos/")
+import requests
+import sys
 
-    username = user.json()['username']
-    rows = {f"{employee_id}": []}
-    for todo in todos.json():
-        rows[f'{employee_id}'].append({'username': username,
-                                       'completed': todo['completed'],
-                                       'task': todo['title']})
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        employee_id = int(sys.argv[1])
+        user = requests.get(
+            f"https://jsonplaceholder.typicode.com/users/{employee_id}")
+        todos = requests.get(
+            f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos/")
 
-    with open(f"{employee_id}.json", 'w') as f:
-        json.dump(rows, f)
-else:
-    print("Usage: ./2-export_to_JSON.py <employee_id>")
+        username = user.json()['username']
+        rows = {f"{employee_id}": []}
+        for todo in todos.json():
+            rows[f'{employee_id}'].append({'username': username,
+                                           'completed': todo['completed'],
+                                           'task': todo['title']})
+
+        with open(f"{employee_id}.json", 'w') as f:
+            json.dump(rows, f)
+    else:
+        print("Usage: ./2-export_to_JSON.py <employee_id>")
