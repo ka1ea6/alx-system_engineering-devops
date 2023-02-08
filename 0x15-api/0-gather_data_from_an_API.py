@@ -8,19 +8,20 @@ if __name__ == "__main__":
         url = "https://jsonplaceholder.typicode.com"
         employee_id = int(sys.argv[1])
         user = requests.get(
-            f"{url}/users/{employee_id}").json()
+            "{}/users/{}".format(url, employee_id)).json()
         todos = requests.get(
-            f"{url}/users/{employee_id}/todos/").json()
+            "{}/users/{}/todos/".format(url, employee_id)).json()
 
         done_tasks = 0
         done_tasks_str = ""
         for todo in todos:
             if todo['completed']:
                 done_tasks += 1
-                done_tasks_str += f"\t {todo.get('title')}\n"
+                done_tasks_str += "\t {}\n".format(todo.get('title'))
         print(
-            f"Employee {user.get('name')} is done with tasks\
-    ({done_tasks}/{ len(todos)}):")
+            "Employee {} is done with tasks\
+    ({}/{}):".format(user.get('name'), done_tasks, len(todos)))
+
         print(done_tasks_str[:-2])
 
     else:
