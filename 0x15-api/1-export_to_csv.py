@@ -33,4 +33,4 @@ if __name__ == "__main__":
             writer.writerows(rows)
 
     else:
-        print("Usage: ./1-export_to_csv.py <employee_id>")
+        print("Usage:  ./1-export_to_csv.py <employee_id>")
