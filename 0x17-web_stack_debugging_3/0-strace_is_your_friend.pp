@@ -4,3 +4,4 @@ exec { 'change name':
   command  => 'sed s+phpp+php+g /var/html/wp-settings.php',
   provider =>  shell,
 }
+
