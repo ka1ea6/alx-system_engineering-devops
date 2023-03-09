@@ -2,11 +2,11 @@
 
 exec { 'replace-hard':
   provider => shell,
-  command  => 'sed -i +hard nofile 5+hard nofile 50000+ /etc/security/limits.conf'
-  before   => Exec['replace-02']
+  command  => 'sudo sed -i "s+hard nofile 5+hard nofile 50000+" /etc/security/limits.conf',
+  before   => Exec['replace-soft']
 }
 
 exec { 'replace-soft':
   provider => shell,
-  command  => 'sed -i +soft nofile 4+soft nofile 40000+ /etc/security/limits.conf'
+  command  => 'sudo sed -i "s+soft nofile 4+soft nofile 40000+" /etc/security/limits.conf',
 }
