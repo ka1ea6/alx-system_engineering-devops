@@ -1,0 +1,24 @@
+server {
+        # Listening on port 80 and making it the default_server
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        # Configuring the server name
+        server_name 3.89.146.205;
+
+        # Adding the X-Served-By header
+        add_header X-Served-By $HOSTNAME;
+
+        # Proxying requests to /airbnb_onepage to the gunicorn
+        location = /airbnb-onepage {
+                proxy_pass http://127.0.0.1:5000/airbnb-onepage;
+        }
+
+        
+        # Error Page
+        error_page 404 /404.html
+        location /404 {
+                root /var/www/html;
+                internal;
+        }
+}
