@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+# Gracefully reloads Gunicorn
+
+ps aux | grep gunicorn | awk '{ pring 2 }' | xargs kill -HUP
