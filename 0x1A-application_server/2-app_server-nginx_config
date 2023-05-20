@@ -1,24 +1,27 @@
+# Configuring an Nginx server to server the route /airbnb-onepage/ from AirBnB_clone_v2.
+
 server {
-        # Listening on port 80 and making it the default_server
-        listen 80 default_server;
-        listen [::]:80 default_server ipv6only=on;
+	listen 80;
+	listen [::]:80 ipv6only=on;
 
-        # Configuring the server name
-        server_name 3.89.146.205;
+	# Using IP of the server as the domain name
+	server_name 54.146.64.215;
 
-        # Adding the X-Served-By header
-        add_header X-Served-By $HOSTNAME;
+	# Adding a header to show the hostname
+	add_header X-Served-By $HOSTNAME;
 
-        # Proxying requests to /airbnb_onepage to the gunicorn
-        location = /airbnb-onepage {
-                proxy_pass http://127.0.0.1:5000/airbnb-onepage;
-        }
+	
+	# configuring the server to serve the /airbnb-onepage
+	# route
 
-        
-        # Error Page
-        error_page 404 /404.html
-        location /404 {
-                root /var/www/html;
-                internal;
-        }
+	location = /airbnb-onepage {
+		proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+	}
+
+	# Configuring 404 page
+	error_page 404 /404.html;
+	location /404 {
+		root /var/www/html;
+		internal;
+	}
 }
